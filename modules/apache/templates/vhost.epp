@@ -1,0 +1,12 @@
+<VirtualHost *:80>
+ServerName <%=$site%>
+DocumentRoot <%=$docroot%>
+<Directory <%=$docroot%>>
+  Order deny,allow
+  Allow from all
+  AllowOverride All
+</Directory>
+ErrorLog /var/log/apache2/error-<%=$site%>.log
+CustomLog /var/log/apache2/access-<%=$site%>.log combined
+</VirtualHost>
+
