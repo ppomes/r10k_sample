@@ -43,7 +43,7 @@ node 'web.pomes.pro' {
     owner   => 'www-data',
     group   => 'www-data',
     mode    => '0644',
-    content => '<?php echo \"Running from $environment\" ?>',
+    content => "<?php echo \"Running from $server_facts['environment']" ?>",
   }
 }
 
