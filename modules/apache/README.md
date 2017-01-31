@@ -1,6 +1,6 @@
 # Apache module
 
-#### Table of Contents
+## Table of Contents
 
 1. [Description](#description)
 1. [Usage](#usage)
@@ -11,7 +11,7 @@
 
 ## Description
 
-Sample module for Apache for Ubuntu systems
+Sample module for Apache on Ubuntu systems
 
 ## Usage
 
@@ -32,7 +32,7 @@ To create a vhost:
 
 ```
 apache::vhost{'mysite':
-  site    => 'www.example.com',
+  website => 'www.example.com',
   docroot => '/var/www/example',
 }
 ```
@@ -61,7 +61,7 @@ webusers:
 
 ### htaccess
 
-To define a .htacces file:
+To define a .htaccess file:
 
 ```
 apache::htaccess{'htaccess':

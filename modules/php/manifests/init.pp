@@ -1,6 +1,6 @@
+# PHP class
 class php {
-        package {['php5','php5-mysql']:
-           ensure => present,
-        }
+  package {['php','php-mysql','libapache2-mod-php']:
+    ensure => present,
+  }
 }
-

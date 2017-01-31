@@ -1,25 +1,25 @@
-# @param site Site name
+# @param website Site name
 # @param docroot DocumentRoot
 # See README
 define apache::vhost (
-  $site,
+  $website,
   $docroot
 ) {
-  file { "/etc/apache2/sites-available/${site}.conf":
+  file { "/etc/apache2/sites-available/${website}.conf":
     ensure  => present,
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
     content => epp('apache/vhost.epp', {
-      'site'    => $site,
+      'website' => $website,
       'docroot' => $docroot}
     ),
   }
 
-  file { "/etc/apache2/sites-enabled/${site}.conf":
+  file { "/etc/apache2/sites-enabled/${website}.conf":
     ensure  => link,
-    target  => "/etc/apache2/sites-available/${site}.conf",
-    require => File["/etc/apache2/sites-available/${site}.conf"],
+    target  => "/etc/apache2/sites-available/${website}.conf",
+    require => File["/etc/apache2/sites-available/${website}.conf"],
     notify  => Service['apache2'],
   }
 }

@@ -4,26 +4,26 @@ class baseconfig (
 ) {
 
   case $agentmode {
-    'service': { 
+    'service': {
       $ensureservice='running';
       $enableservice=true;
       $ensurecron='absent'
     }
     'cron': {
       $ensureservice='stopped';
-      $enableservice=false; 
+      $enableservice=false;
       $ensurecron='present'
     }
     default: {
       $ensureservice='stopped';
       $enableservice=false;
       $ensurecron='absent'
-    }  
+    }
   }
   service {'puppet':
     ensure => $ensureservice,
     enable => $enableservice,
-  } 
+  }
   cron {'puppet-agent':
     ensure  => $ensurecron,
     user    => root,
@@ -31,6 +31,3 @@ class baseconfig (
     command => '/opt/puppet/bin/puppet agent --onetime --no-daemonize --splay --splaylimit 60',
   }
 }
-  
-  
-

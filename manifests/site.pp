@@ -1,6 +1,6 @@
 node 'web.pomes.pro' {
-  $site=$fqdn;
-  $docroot="/var/www/${site}";
+  $website=$fqdn;
+  $docroot="/var/www/${website}";
   $users=hiera('webusers');
 
   class { 'baseconfig':
@@ -16,8 +16,8 @@ node 'web.pomes.pro' {
     root_password => 'super_secure_password';
   }
 
-  apache::vhost{"${site}":
-    site    => $site,
+  apache::vhost{$website:
+    website => $website,
     docroot => $docroot,
   }
 
@@ -43,7 +43,7 @@ node 'web.pomes.pro' {
     owner   => 'www-data',
     group   => 'www-data',
     mode    => '0644',
-    content => "<?php echo \"Running from $environment\" ?>",
+    content => '<?php echo \"Running from $environment\" ?>',
   }
 }
 

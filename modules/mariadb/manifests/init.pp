@@ -1,11 +1,11 @@
+# MariaDB class
 class mariadb {
-        package {'mariadb-server':
-           ensure => present,
-        }
+  package {'mariadb-server':
+    ensure => present,
+  }
 
-        service {'mysql':
-           ensure => running,
-           enable => true
-        }
+  service {'mysql':
+    ensure => running,
+    enable => true,
+  }
 }
-

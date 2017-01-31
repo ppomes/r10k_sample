@@ -6,7 +6,7 @@ class apache {
 
   service {'apache2':
     ensure => running,
-    enable => true
+    enable => true,
   }
 
   file {'/etc/apache2/sites-enabled/000-default.conf':
